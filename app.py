@@ -1,5 +1,7 @@
 from flask import Flask, request
 import os
+from src.PaymentApi import PaymentApi
+
 app = Flask(__name__)
 
 # Data POST Requests
@@ -10,6 +12,7 @@ def pay():
 	
 	# Send payment info to paypal using api
 	print(paymentInfo["cardNumber"])
+	paymentApi = PaymentApi(paymentInfo)
 
 	# Return status code
 	return "200"
