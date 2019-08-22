@@ -10,9 +10,11 @@ def pay():
 	# Gather Data
 	paymentInfo = request.json
 	
-	# Send payment info to paypal using api
-	print(paymentInfo["cardNumber"])
-	paymentApi = PaymentApi(paymentInfo)
+	# Send payment info to account using stripe api
+	#print(paymentInfo['tokenId'])
+	#print(paymentInfo['paymentAmount'])
+	paymentApi = PaymentApi(paymentInfo['tokenId'])
+	paymentApi.sendPayment(paymentInfo['paymentAmount'])
 
 	# Return status code
 	return "200"
