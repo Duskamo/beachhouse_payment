@@ -13,8 +13,8 @@ def pay():
 	# Send payment info to account using stripe api
 	#print(paymentInfo['tokenId'])
 	#print(paymentInfo['paymentAmount'])
-	paymentApi = PaymentApi(paymentInfo['tokenId'])
-	paymentApi.sendPayment(paymentInfo['paymentAmount'])
+	paymentApi = PaymentApi(paymentInfo)
+	paymentApi.sendPayment()
 
 	# Return status code
 	return "200"
