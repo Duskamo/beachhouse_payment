@@ -11,13 +11,11 @@ def pay():
 	paymentInfo = request.json
 	
 	# Send payment info to account using stripe api
-	#print(paymentInfo['tokenId'])
-	#print(paymentInfo['paymentAmount'])
 	paymentApi = PaymentApi(paymentInfo)
 	paymentApi.sendPayment()
 
-	# Return status code
-	return "200"
+	# Return status 
+	return "Success"
 
 # Run app on 0.0.0.0:5001
 if __name__ == "__main__":
