@@ -9,7 +9,7 @@ class PaymentApi:
 
 	def sendPayment(self):
 		charge = stripe.Charge.create(
-		    amount=int(self.paymentInfo['paymentAmount']),
+		    amount=int(self.paymentInfo['paymentAmount'] + '00'),
 		    currency='usd',
 		    description='Beach House Rental Charge',
 		    source=self.paymentInfo['tokenId'],
